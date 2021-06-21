@@ -1,4 +1,5 @@
 class Api::StudentsController < ActionController::API
+    
     def index
         students = Student.all
         students = students.map do |student|
