@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2021_06_22_075746) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "course_id"
-    t.datetime "enrolled_from", null: false
+    t.datetime "enrolled_from"
   end
 
 end
