@@ -1,6 +1,8 @@
-class Api::StudentsController < ActionController::API
+class Api::StudentsController < Api::ApplicationController
+
     include PrettyDate
     include ValidateId
+    
     def index
         students = Student.all
         students = students.map do |student|
@@ -9,6 +11,7 @@ class Api::StudentsController < ActionController::API
         end
         render json: { results: students }.to_json, status: :ok
     end
+
     def show
         if validate_id(Student,params[:id])
             student = Student.find(params[:id])
@@ -22,6 +25,7 @@ class Api::StudentsController < ActionController::API
             redirect_to api_students_path
         end
     end
+
     def create
         name = params[:name]
         course_id = params[:course_id]

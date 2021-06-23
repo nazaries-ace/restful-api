@@ -24,6 +24,12 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
+# Flexible authentication solution for Rails with Warden
+gem 'devise', '~> 4.8'
+# A pure ruby implementation of the RFC 7519 OAuth JSON Web Token (JWT
+gem 'jwt', '~> 2.2', '>= 2.2.3'
+# Easy way to build and manage commands (service objects)
+gem 'simple_command', '~> 0.1.0'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 # Pagination

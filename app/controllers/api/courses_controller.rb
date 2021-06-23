@@ -1,6 +1,7 @@
 class Api::CoursesController < ActionController::API
     include PrettyDate
     include ValidateId
+
     def index
         courses = Course.all
         courses = courses.map do |course|
@@ -21,17 +22,29 @@ class Api::CoursesController < ActionController::API
                 end
                 students_enrolled_in = students
             end
-            course = { id: course.id, students_enrolled_in: students_enrolled_in }
+            course = { name: course.name, students_enrolled_in: students_enrolled_in }
             render json: { results: course }.to_json, status: :ok
         else
             redirect_to api_courses_path
         end
     end
+
     def create
         course = params[:name]
         Course.create(name: course)
         redirect_to api_course_path(Course.last.id)
     end
+
+    def update
+        if validate_id(Course,params[:id])
+            new_name = params[:name]
+            Course.find(params[:id]).update(name: new_name)
+            render json: { results: "successfully updated" }.to_json, status: :ok
+        else
+            redirect_to api_students_path
+        end
+    end
+
     def destroy
         if validate_id(Course,params[:id])
             Course.find(params[:id]).destroy
