@@ -1,0 +1,2 @@
+module Api::TrainningCentersHelper
+end

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     post 'authenticate', to: 'authentication#authenticate'
     resources :students, only: [:index, :show, :create, :update, :destroy]
     resources :courses, only: [:index, :show, :create, :update, :destroy]
+    resources :trainning_centers, only: [:index]
   end
   
 end

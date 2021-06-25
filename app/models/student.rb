@@ -1,3 +1,4 @@
 class Student < ApplicationRecord
-    belongs_to :course
+    has_many :school_years
+    has_many :universities, through: :school_years
 end
